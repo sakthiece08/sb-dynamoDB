@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Configuration;
 
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
-import com.amazonaws.auth.BasicSessionCredentials;
 import com.amazonaws.client.builder.AwsClientBuilder;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
@@ -28,11 +27,8 @@ public class DynamoDBConfig {
     @Value("${aws.dynamodb.secretKey}")
     private String dynamodbSecretKey;
 
-  //  @Value("${aws.dynamo.sessionToken}")
-  //  private String dynamodbSessionToken;
-
     @Bean
-    public DynamoDBMapper dynamoDBMapper() {
+    DynamoDBMapper dynamoDBMapper() {
         return new DynamoDBMapper(buildAmazonDynamoDB());
     }
 
@@ -47,11 +43,9 @@ public class DynamoDBConfig {
                 )
                 .withCredentials(
                         new AWSStaticCredentialsProvider(
-                              //  new BasicSessionCredentials(
                         		  new BasicAWSCredentials(
                                         dynamodbAccessKey,
                                         dynamodbSecretKey
-                                       // dynamodbSessionToken
                                 )
                         )
                 )

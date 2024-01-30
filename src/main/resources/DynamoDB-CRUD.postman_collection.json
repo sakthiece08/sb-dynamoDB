@@ -1,0 +1,184 @@
+{
+	"info": {
+		"_postman_id": "da100e17-2496-464d-9fb1-dd50aa9acab3",
+		"name": "DynamoDB-CRUD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2931585"
+	},
+	"item": [
+		{
+			"name": "load Business item",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/business/110/date_range/2020-01-26",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"business",
+						"110",
+						"date_range",
+						"2020-01-26"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "query Business",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/business/ee22c978-cdd2-4129-b544-ac8edecc073a/date/2020-01-26",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"business",
+						"ee22c978-cdd2-4129-b544-ac8edecc073a",
+						"date",
+						"2020-01-26"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "query Business using GSI",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/business/Reliance",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"business",
+						"Reliance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save business item",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"doc\": \"2020-07-26\",\n    \"dateOfEst\": \"2020-06-26T00:00:00.000Z\",\n    \"activeFlag\": false,\n    \"numberOfEmployees\": 230.0,\n    \"name\": \"Reliance\",\n    \"rank\": 4,\n    \"contact\": [\n        {\n            \"contactType\": \"EMAIL\",\n            \"value\": \"teqmonic1@gmail.com\"\n        },\n        {\n            \"contactType\": \"PHONE\",\n            \"value\": \"6476290001\"\n        }\n    ],\n    \"details\": {\n        \"marketCap\": \"51000\",\n        \"bookValue\": \"300\",\n        \"faceValue\": \"4\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/business",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"business"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update business item",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/business/e8749f3b-f18e-4320-b756-76e6863a559a/date_range/2020-05-26/no_employees/991",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"business",
+						"e8749f3b-f18e-4320-b756-76e6863a559a",
+						"date_range",
+						"2020-05-26",
+						"no_employees",
+						"991"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete business item",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/business/100/date_range/2020-01-27",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"business",
+						"100",
+						"date_range",
+						"2020-01-27"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -54,8 +54,7 @@ public class Business {
 	 private int rank;
 	 
 	 @DynamoDBVersionAttribute(attributeName = "version")
-	 private Long version;
-	 
+	 private Long version; 
 	 
 	 @DynamoDBAttribute(attributeName = "contact_list")
 	 private List<Contact> contact;
